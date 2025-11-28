@@ -1,12 +1,23 @@
 {
   "name": "litefab-chain",
-  "module": "index.ts",
+  "module": "src/index.ts",
   "type": "module",
   "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "generate-config": "bun run src/index.ts generate-config",
+    "start-peer": "bun run src/index.ts start-peer ./config/peer.json",
+    "start-orderer": "bun run src/index.ts start-orderer ./config/orderer.json",
+    "client": "bun run src/index.ts client",
+    "test": "bun test-simple.ts",
+    "build": "bun build src/index.ts --outdir ./dist --target bun"
   },
-  "peerDependencies": {
-    "typescript": "^5"
+  "dependencies": {
+    "level": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
   }
 }
